@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Jersey 25';
+  src: url('./assets/fonts/Jersey25-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Slab', serif;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Custom Scrollbar for Dark Theme */
+.dark-scrollbar ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dark-scrollbar ::-webkit-scrollbar-track {
+  background: #1E1E1E;
+}
+
+.dark-scrollbar ::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 4px;
+}
+
+.dark-scrollbar ::-webkit-scrollbar-thumb:hover {
+  background: #4A4A4A;
+}
+
+/* Custom Scrollbar for Light Theme */
+.light-scrollbar ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.light-scrollbar ::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+.light-scrollbar ::-webkit-scrollbar-thumb {
+  background: #E0E0E0;
+  border-radius: 4px;
+}
+
+.light-scrollbar ::-webkit-scrollbar-thumb:hover {
+  background: #CCCCCC;
+}
+
+.glow-effect {
+  text-shadow: 
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.2),
+    0 0 60px rgba(255, 255, 255, 0.1);
+} 
