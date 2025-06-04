@@ -73,10 +73,9 @@ const SettingsPage = () => {
   const handlePasswordChange = (field: keyof typeof passwords, value: string) => {
     setPasswords(prev => ({ ...prev, [field]: value }))
   }
-
   const handleSaveProfile = () => {
     console.log('Saving profile:', user)
-    // In a real app, this would send the data to the backend
+    /* In a real app, this would send the data to the backend */
   }
 
   const handleChangePassword = () => {
@@ -86,7 +85,7 @@ const SettingsPage = () => {
     }
     console.log('Changing password')
     setPasswords({ current: '', new: '', confirm: '' })
-    // In a real app, this would send the password change request
+    /* In a real app, this would send the password change request */
   }
 
   const handleToggle2FA = () => {
@@ -238,12 +237,11 @@ const SettingsPage = () => {
           Save Changes
         </button>
       </div>
-    </div>
-  )
+    </div>  )
 
+  /* Renders the security tab with theme toggle, password change, and 2FA settings */
   const renderSecurityTab = () => (
     <div className="space-y-8">
-      {/* Theme Toggle */}
       <div 
         className="p-6 rounded-lg"
         style={{ backgroundColor: theme.colors.surface }}
@@ -269,11 +267,9 @@ const SettingsPage = () => {
             }}
           >
             {isDark ? 'Switch to Light' : 'Switch to Dark'}
-          </button>
-        </div>
+          </button>      </div>
       </div>
 
-      {/* Password Change */}
       <div 
         className="p-6 rounded-lg"
         style={{ backgroundColor: theme.colors.surface }}
@@ -355,10 +351,7 @@ const SettingsPage = () => {
             Change Password
           </button>
         </div>
-      </div>
-
-      {/* Two-Factor Authentication */}
-      <div 
+      </div>      <div 
         className="p-6 rounded-lg"
         style={{ backgroundColor: theme.colors.surface }}
       >
@@ -529,12 +522,13 @@ const SettingsPage = () => {
             key={index}
             onClick={() => handleUserUpdate('avatar', avatar)}
             className={`text-4xl p-4 rounded-lg transition-all duration-200 hover:scale-110 ${
-              user.avatar === avatar ? 'ring-4' : ''
-            }`}
+              user.avatar === avatar ? 'ring-4' : ''            }`}
             style={{
-              backgroundColor: theme.colors.surface,
-              ringColor: theme.colors.success
+              backgroundColor: theme.colors.surface
             }}
+            className={`w-16 h-16 text-2xl rounded-full border-4 hover:border-4 transition-all duration-200 ${
+              user.avatar === avatar ? 'border-green-500' : 'border-transparent hover:border-gray-300'
+            }`}
           >
             {avatar}
           </button>
@@ -587,9 +581,7 @@ const SettingsPage = () => {
           >
             Settings
           </h1>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar Navigation */}
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             <div className="lg:col-span-1">
               <div 
                 className="rounded-lg p-4 space-y-2"
@@ -615,11 +607,9 @@ const SettingsPage = () => {
                       {tab.name}
                     </button>
                   )
-                })}
-              </div>
+                })}            </div>
             </div>
             
-            {/* Main Content */}
             <div className="lg:col-span-3">
               <div 
                 className="rounded-lg p-6"

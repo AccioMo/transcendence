@@ -104,14 +104,13 @@ const StatisticsPage = () => {
       default: return '🎮'
     }
   }
-
   const calculateXPPercentage = () => {
     return (mockStats.xp / mockStats.xpToNext) * 100
   }
 
+  /* Renders the overview tab containing level/XP section, XP progress bar, and stats grid */
   const renderOverviewTab = () => (
     <div className="space-y-6">
-      {/* Level and XP Section */}
       <div 
         className="p-6 rounded-lg"
         style={{ backgroundColor: theme.colors.surface }}
@@ -143,7 +142,6 @@ const StatisticsPage = () => {
           </div>
         </div>
         
-        {/* XP Progress Bar */}
         <div 
           className="w-full h-4 rounded-full overflow-hidden"
           style={{ backgroundColor: theme.colors.border }}
@@ -158,7 +156,6 @@ const StatisticsPage = () => {
         </div>
       </div>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div 
           className="p-4 rounded-lg text-center"
@@ -210,10 +207,8 @@ const StatisticsPage = () => {
           <p className="text-sm" style={{ color: theme.colors.textSecondary }}>
             Current Streak
           </p>
-        </div>
-      </div>
+        </div>      </div>
 
-      {/* Additional Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div 
           className="p-6 rounded-lg"
@@ -437,7 +432,7 @@ const StatisticsPage = () => {
         return renderOverviewTab()
     }
   }
-
+  /* Main component return with tab navigation and dynamic content rendering */
   return (
     <div 
       className="min-h-screen"
@@ -456,7 +451,6 @@ const StatisticsPage = () => {
             </h1>
           </div>
           
-          {/* Tab Navigation */}
           <div 
             className="flex gap-1 p-1 rounded-lg mb-6"
             style={{ backgroundColor: theme.colors.surface }}
@@ -478,11 +472,9 @@ const StatisticsPage = () => {
                   <Icon size={16} />
                   <span className="hidden sm:inline">{tab.name}</span>
                 </button>
-              )
-            })}
+              )            })}
           </div>
           
-          {/* Tab Content */}
           <div>
             {renderTabContent()}
           </div>

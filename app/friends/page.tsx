@@ -80,10 +80,9 @@ const FriendsPage = () => {
       default: return 'Offline'
     }
   }
-
   const handleSendMessage = () => {
     if (newMessage.trim() && activeFriend) {
-      // In a real app, this would send the message to the backend
+      /* In a real app, this would send the message to the backend */
       console.log(`Sending message to ${activeFriend.name}: ${newMessage}`)
       setNewMessage('')
     }
@@ -92,14 +91,14 @@ const FriendsPage = () => {
   const handleChallenge = () => {
     if (activeFriend) {
       console.log(`Challenging ${activeFriend.name} to a game!`)
-      // In a real app, this would send a challenge request
+      /* In a real app, this would send a challenge request */
     }
   }
 
   const handleBlock = () => {
     if (activeFriend) {
       console.log(`Blocking ${activeFriend.name}`)
-      // In a real app, this would block the user
+      /* In a real app, this would block the user */
     }
   }
 
@@ -108,9 +107,9 @@ const FriendsPage = () => {
     setTimeout(() => {
       setActiveFriend(null)
       setIsChatVisible(true)
-    }, 300)
-  }
+    }, 300)  }
 
+  /* Main component return with friends sidebar and chat area */
   return (
     <div 
       className="min-h-screen"
@@ -118,7 +117,6 @@ const FriendsPage = () => {
     >
       <Navigation />
       <main className="pt-20 h-screen flex">
-        {/* Friends List Sidebar */}
         <div 
           className="w-80 border-r flex flex-col"
           style={{ 
@@ -177,15 +175,11 @@ const FriendsPage = () => {
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Chat Area */}
-        <div className={`flex-1 flex flex-col transition-transform duration-300 ${
+        </div>        <div className={`flex-1 flex flex-col transition-transform duration-300 ${
           isChatVisible ? 'translate-x-0' : 'translate-x-full'
         }`}>
           {activeFriend ? (
             <>
-              {/* Chat Header */}
               <div 
                 className="p-4 border-b flex items-center justify-between"
                 style={{ 
@@ -220,7 +214,6 @@ const FriendsPage = () => {
                   </div>
                 </div>
 
-                {/* Action Buttons */}
                 <div className="flex gap-2">
                   <button
                     onClick={handleChallenge}
@@ -257,9 +250,7 @@ const FriendsPage = () => {
                     <FaTimes size={16} />
                     Close
                   </button>
-                </div>
-              </div>              {/* Messages */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
+                </div>              </div>              <div className="flex-1 overflow-y-auto p-4 space-y-4">
                 {mockMessages[activeFriend.id]?.map((message) => (
                   <div
                     key={message.id}
@@ -284,10 +275,8 @@ const FriendsPage = () => {
                     </div>
                   </div>
                 ))}
-                <div ref={messagesEndRef} />
-              </div>
+                <div ref={messagesEndRef} />              </div>
 
-              {/* Message Input */}
               <div 
                 className="p-4 border-t"
                 style={{ 
@@ -320,10 +309,8 @@ const FriendsPage = () => {
                     <FaPaperPlane size={16} />
                   </button>
                 </div>
-              </div>
-            </>
+              </div>            </>
           ) : (
-            /* No Friend Selected */
             <div className="flex-1 flex items-center justify-center">
               <div className="text-center">
                 <div className="text-6xl mb-4">💬</div>
