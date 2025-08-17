@@ -1,0 +1,51 @@
+services:
+  frontend:
+    build: 
+      context: ./frontend
+    restart: unless-stopped
+    env_file:
+      - .env
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  backend:
+    build: 
+      context: ./backend
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - backend-data:/app/data
+      - ./backend/app.db:/app/app.db:rw
+    networks:
+      - app-network
+
+  nginx:
+    build: 
+      context: ./nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      - ssl-certs:/etc/ssl
+    networks:
+      - app-network
+    depends_on:
+      - frontend
+      - backend
+
+networks:
+  app-network:
+    driver: bridge
+    internal: false
+
+volumes:
+  backend-data:
+    driver: local
+  ssl-certs:
+    driver: local
