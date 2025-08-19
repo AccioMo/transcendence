@@ -1,0 +1,6 @@
+[submodule "backend"]
+	path = backend
+	url = git@github.com:Nassibi107/api_transcendence42.git
+[submodule "frontend"]
+	path = frontend
+	url = git@github.com:sperkoo/frontendTransc.git
